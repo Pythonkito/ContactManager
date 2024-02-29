@@ -29,5 +29,5 @@ BaselineOfTheContactManager >> ical: spec [
 
 	spec
 		baseline: 'ICal'
-		with: [ spec repository: 'github://Ducasse/Infhub/src' ]
+		with: [ spec repository: 'github://hernanmd/Infhub:load_vcard_tests/src' ]
 ]
