@@ -20,8 +20,8 @@ BaselineOfTheContactManager >> baseline: spec [
 			spec 
 				group: 'Core' 						with: #('ContactManager');
 				group: 'UI'                    with: #('ContactManager-UI');
-				group: 'Tests' 						with: #('ContactManager' 'ContactManager-Tests');
-				group: 'default' 					with: #('Core' 'Tests' 'UI') ]
+				group: 'Tests' 						with: #('ContactManager-Tests');
+				group: 'default' 					with: #('Core' 'UI') ]
 ]
 
 { #category : 'baselines' }
@@ -29,5 +29,5 @@ BaselineOfTheContactManager >> ical: spec [
 
 	spec
 		baseline: 'ICal'
-		with: [ spec repository: 'github://Ducasse/Infhub/src' ]
+		with: [ spec repository: 'github://hernanmd/Infhub:load_vcard_tests/src' ]
 ]

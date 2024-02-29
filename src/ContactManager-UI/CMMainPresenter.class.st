@@ -6,8 +6,9 @@ Class {
 		'statusBar',
 		'model'
 	],
-	#category : 'ContactManager-UI',
-	#package : 'ContactManager-UI'
+	#category : 'ContactManager-UI-Core',
+	#package : 'ContactManager-UI',
+	#tag : 'Core'
 }
 
 { #category : 'adding' }
@@ -15,7 +16,7 @@ CMMainPresenter >> addContact [
 	"empty for now"
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'adding' }
 CMMainPresenter >> contacts: aCollection [
 
 	contactList items: aCollection.
@@ -47,11 +48,11 @@ CMMainPresenter >> initializePresenters [
 			yourself);
 		addColumn: (SpStringTableColumn new 
 			title: 'Number';
-			evaluated: #phoneNumbers;
+			evaluated: [ : contact | (contact phoneNumbers collect: #number) joinUsing: ','  ];
 			yourself);
 		addColumn: (SpStringTableColumn new
 			title: 'email';
-			evaluated: #emailAddresses;
+			evaluated: [ : contact | (contact emailAddresses collect: #address) joinUsing: ',' ];
 			yourself);
 		yourself.
 	statusBar := self newStatusBar.
