@@ -21,7 +21,7 @@ BaselineOfTheContactManager >> baseline: spec [
 				group: 'Core' 						with: #('ContactManager');
 				group: 'UI'                    with: #('ContactManager-UI');
 				group: 'Tests' 						with: #('ContactManager-Tests');
-				group: 'default' 					with: #('Core' 'Tests' 'UI') ]
+				group: 'default' 					with: #('Core' 'UI') ]
 ]
 
 { #category : 'baselines' }
