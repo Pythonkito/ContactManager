@@ -14,7 +14,7 @@ BaselineOfTheContactManager >> baseline: spec [
 			self ical: spec.
 
 			spec 
-				package: 'ContactManager'; 		with: [ spec requires: #(ICal) ];
+				package: 'ContactManager' 		with: [ spec requires: #(ICal) ];
 				package: 'ContactManager-UI'   with: [ spec requires: #(ContactManager) ];
 				package: 'ContactManager-Tests'	with: [ spec requires: #(ContactManager) ].
 			spec 
