@@ -19,7 +19,7 @@ BaselineOfTheContactManager >> baseline: spec [
 				package: 'ContactManager-Tests'	with: [ spec requires: #(ContactManager) ].
 			spec 
 				group: 'Core' 						with: #('ContactManager');
-				group: 'UI'                    with: #('TheNoteTaker-UI');
+				group: 'UI'                    with: #('ContactManager-UI');
 				group: 'Tests' 						with: #('ContactManager' 'ContactManager-Tests');
 				group: 'default' 					with: #('Core' 'Tests' 'UI') ]
 ]
