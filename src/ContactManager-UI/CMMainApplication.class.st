@@ -4,8 +4,9 @@ Class {
 	#instVars : [
 		'contacts'
 	],
-	#category : 'ContactManager-UI',
-	#package : 'ContactManager-UI'
+	#category : 'ContactManager-UI-Core',
+	#package : 'ContactManager-UI',
+	#tag : 'Core'
 }
 
 { #category : 'private' }
@@ -44,6 +45,6 @@ CMMainApplication >> initialize [
 CMMainApplication >> start [
 
 	(CMMainPresenter newApplication: self) 
-		contacts: self contacts;
+		"contacts: self contacts;"
 		open
 ]
