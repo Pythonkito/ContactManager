@@ -2,9 +2,7 @@ Class {
 	#name : 'ContactManager',
 	#superclass : 'Object',
 	#instVars : [
-		'name',
-		'number',
-		'email'
+		'contacts'
 	],
 	#classInstVars : [
 		'contacts'
@@ -14,11 +12,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ContactManager class >> addContact: aContact [
+ContactManager >> addContact: aContact [
 	contacts add: aContact 
 ]
 
 { #category : 'accessing' }
-ContactManager class >> contacts [
+ContactManager >> contacts [
 	^ contacts ifNil: [ contacts := OrderedCollection new ]
 ]

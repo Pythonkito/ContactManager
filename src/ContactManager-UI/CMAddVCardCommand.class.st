@@ -12,7 +12,7 @@ CMAddVCardCommand >> canBeExecuted [
 	self shouldBeImplemented
 ]
 
-{ #category : 'testing' }
+{ #category : 'executing' }
 CMAddVCardCommand >> execute [
 
 	self shouldBeImplemented
