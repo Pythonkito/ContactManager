@@ -4,8 +4,8 @@ Class {
 	#instVars : [
 		'contactManager'
 	],
-	#category : 'ContactManger-Tests',
-	#package : 'ContactManger-Tests'
+	#category : 'ContactManager-Tests',
+	#package : 'ContactManager-Tests'
 }
 
 { #category : 'running' }
