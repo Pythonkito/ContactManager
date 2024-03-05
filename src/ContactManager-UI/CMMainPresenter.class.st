@@ -13,7 +13,21 @@ Class {
 
 { #category : 'adding' }
 CMMainPresenter >> addContact [
-	"empty for now"
+	| presenter windowPresenter |
+	
+	presenter := CMAddPresenter newApplication: self application.
+	windowPresenter := presenter openModal.
+	windowPresenter isOk
+		ifFalse: [ ^ self ].
+		
+	ContactManager 
+		addContact:
+			(ContactManager new
+				name: presenter name;
+				number: presenter phoneNumbers;
+				email: presenter email).
+				
+	self updatePresenter
 ]
 
 { #category : 'adding' }
@@ -51,7 +65,7 @@ CMMainPresenter >> initializePresenters [
 			evaluated: [ : contact | (contact phoneNumbers collect: #number) joinUsing: ','  ];
 			yourself);
 		addColumn: (SpStringTableColumn new
-			title: 'email';
+			title: 'Email';
 			evaluated: [ : contact | (contact emailAddresses collect: #address) joinUsing: ',' ];
 			yourself);
 		yourself.
