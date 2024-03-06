@@ -2,7 +2,8 @@ Class {
 	#name : 'CMMainApplication',
 	#superclass : 'SpApplication',
 	#instVars : [
-		'contacts'
+		'contacts',
+		'contactManager'
 	],
 	#category : 'ContactManager-UI-Core',
 	#package : 'ContactManager-UI',
@@ -22,10 +23,34 @@ CMMainApplication class >> menuNoteTakersOn: aBuilder [
 		order: 630
 ]
 
+{ #category : 'accessing' }
+CMMainApplication >> contactManager [
+
+	^ contactManager
+]
+
+{ #category : 'accessing' }
+CMMainApplication >> contactManager: anObject [
+
+	contactManager := anObject
+]
+
 { #category : 'instance creation' }
 CMMainApplication >> contacts [
 
 	^ contacts
+]
+
+{ #category : 'accessing' }
+CMMainApplication >> contacts: anObject [
+
+	contacts := anObject
+]
+
+{ #category : 'initialization' }
+CMMainApplication >> defaultContactManager [
+
+	^ ContactManager uniqueInstance 
 ]
 
 { #category : 'instance creation' }
@@ -39,6 +64,7 @@ CMMainApplication >> initialize [
 
 	super initialize.
 	contacts := self defaultContacts.
+	contactManager := self defaultContactManager.
 ]
 
 { #category : 'instance creation' }
