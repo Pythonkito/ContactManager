@@ -85,7 +85,8 @@ CMMainPresenter >> initializeContactList [
 			title: 'Email';
 			evaluated: [ : contact | (contact emailAddresses collect: #address) joinUsing: ',' ];
 			yourself);
-		contextMenu: [ (self rootCommandsGroup / 'contact manager commands') beRoot asMenuPresenter ]
+		contextMenu: [ (self rootCommandsGroup / 'contact manager commands') beRoot asMenuPresenter ];
+		items: self contactManager contacts;
 		yourself.
 ]
 
