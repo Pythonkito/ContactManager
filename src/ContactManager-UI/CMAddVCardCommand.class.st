@@ -6,14 +6,16 @@ Class {
 	#tag : 'Commands'
 }
 
-{ #category : 'testing' }
-CMAddVCardCommand >> canBeExecuted [ 
-
-	self shouldBeImplemented
-]
-
 { #category : 'executing' }
 CMAddVCardCommand >> execute [
 
-	self shouldBeImplemented
+	context "..."
+]
+
+{ #category : 'initialization' }
+CMAddVCardCommand >> initialize [
+	super initialize.
+	self
+		name: 'Add to Contact Manager';
+		description: ''
 ]
