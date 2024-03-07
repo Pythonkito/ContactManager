@@ -8,9 +8,6 @@ Class {
 		'model',
 		'addPresenter'
 	],
-	#classVars : [
-		'UniqueInstace'
-	],
 	#category : 'ContactManager-UI-Core',
 	#package : 'ContactManager-UI',
 	#tag : 'Core'
@@ -35,7 +32,7 @@ CMMainPresenter >> addContact [
 	self contactManager
 		addContactName: addPresenter name
 		phoneNumber: addPresenter phoneNumbers
-		email: addPresenter email.
+		email: addPresenter email .
 	
 	contactList items: self contactManager contacts.
 	self updatePresenter
@@ -79,11 +76,11 @@ CMMainPresenter >> initializeContactList [
 			yourself);
 		addColumn: (SpStringTableColumn new 
 			title: 'Number';
-			evaluated: [ : contact | (contact phoneNumbers collect: #phoneNumber) joinUsing: ','  ];
+			evaluated: #phoneNumber;
 			yourself);
 		addColumn: (SpStringTableColumn new
 			title: 'Email';
-			evaluated: [ : contact | (contact emailAddresses collect: #address) joinUsing: ',' ];
+			evaluated: #email;
 			yourself);
 		contextMenu: [ (self rootCommandsGroup / 'contact manager commands') beRoot asMenuPresenter ];
 		items: self contactManager contacts;
