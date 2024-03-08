@@ -1,12 +1,14 @@
 Class {
 	#name : 'CMMainPresenter',
 	#superclass : 'SpPresenter',
-	#classTraits : '{} + TraitedClass',
 	#instVars : [
 		'contactList',
 		'statusBar',
 		'model',
 		'addPresenter'
+	],
+	#classVars : [
+		'UniqueInstace'
 	],
 	#category : 'ContactManager-UI-Core',
 	#package : 'ContactManager-UI',
@@ -20,6 +22,7 @@ CMMainPresenter class >> buildCommandsGroupWith: presenter forRoot: rootCommandG
 		register:
 			((CmCommandGroup named: 'contact manager commands') asSpecGroup
 				register: CMAddVCardCommand forSpec;
+				register: CMRemoveVCardCommand forSpec;
 				yourself)
 ]
 
@@ -32,14 +35,14 @@ CMMainPresenter >> addContact [
 	self contactManager
 		addContactName: addPresenter name
 		phoneNumber: addPresenter phoneNumbers
-		email: addPresenter email .
+		email: addPresenter email.
 	
-	contactList items: self contactManager contacts.
-	self updatePresenter
+	self updateItems.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 CMMainPresenter >> contactManager [
+	"Answer the receiver's <ContactManager>"
 
 	^ self application contactManager
 ]
@@ -76,11 +79,11 @@ CMMainPresenter >> initializeContactList [
 			yourself);
 		addColumn: (SpStringTableColumn new 
 			title: 'Number';
-			evaluated: #phoneNumber;
+			evaluated: [ : contact | (contact phoneNumbers collect: #phoneNumber) joinUsing: ','  ];
 			yourself);
 		addColumn: (SpStringTableColumn new
 			title: 'Email';
-			evaluated: #email;
+			evaluated: [ : contact | (contact emailAddresses collect: #address) joinUsing: ',' ];
 			yourself);
 		contextMenu: [ (self rootCommandsGroup / 'contact manager commands') beRoot asMenuPresenter ];
 		items: self contactManager contacts;
@@ -108,4 +111,19 @@ CMMainPresenter >> initializeWindow: aWindowPresenter [
 				yourself);
 			yourself)
 	
+]
+
+{ #category : 'adding' }
+CMMainPresenter >> selectedContact [
+	"Answer a <ICVCard> representing the currently selected contact"
+	
+	^ contactList selectedItem
+	
+]
+
+{ #category : 'adding' }
+CMMainPresenter >> updateItems [
+
+	contactList items: self contactManager contacts.
+	self updatePresenter
 ]

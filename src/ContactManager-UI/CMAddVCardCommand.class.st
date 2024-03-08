@@ -1,3 +1,6 @@
+"
+Implements the ""Add contact"" operation in the Contact Manager application.
+"
 Class {
 	#name : 'CMAddVCardCommand',
 	#superclass : 'CMAbstractCommand',
@@ -16,6 +19,7 @@ CMAddVCardCommand >> execute [
 CMAddVCardCommand >> initialize [
 	super initialize.
 	self
-		name: 'Add to Contact Manager';
-		description: ''
+		name: 'Add';
+		iconNamed: #glamorousAdd;
+		description: 'Add a new Contact'
 ]
