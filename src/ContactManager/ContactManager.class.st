@@ -49,3 +49,9 @@ ContactManager >> contacts [
 	^ contacts 
 		ifNil: [ contacts := OrderedCollection new ]
 ]
+
+{ #category : 'accessing' }
+ContactManager >> removeContact: anICVCard [
+	
+	self contacts remove: anICVCard 
+]

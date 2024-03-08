@@ -23,6 +23,7 @@ CMMainPresenter class >> buildCommandsGroupWith: presenter forRoot: rootCommandG
 		register:
 			((CmCommandGroup named: 'contact manager commands') asSpecGroup
 				register: CMAddVCardCommand forSpec;
+				register: CMRemoveVCardCommand forSpec;
 				yourself)
 ]
 
@@ -37,12 +38,12 @@ CMMainPresenter >> addContact [
 		phoneNumber: addPresenter phoneNumbers
 		email: addPresenter email.
 	
-	contactList items: self contactManager contacts.
-	self updatePresenter
+	self updateItems.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 CMMainPresenter >> contactManager [
+	"Answer the receiver's <ContactManager>"
 
 	^ self application contactManager
 ]
@@ -111,4 +112,19 @@ CMMainPresenter >> initializeWindow: aWindowPresenter [
 				yourself);
 			yourself)
 	
+]
+
+{ #category : 'adding' }
+CMMainPresenter >> selectedContact [
+	"Answer a <ICVCard> representing the currently selected contact"
+	
+	^ contactList selectedItem
+	
+]
+
+{ #category : 'adding' }
+CMMainPresenter >> updateItems [
+
+	contactList items: self contactManager contacts.
+	self updatePresenter
 ]
